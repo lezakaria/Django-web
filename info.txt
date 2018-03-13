@@ -1,0 +1,1 @@
+Il faut noter que c'est pip3, virtualenv <name> -p /usr/bin/python3

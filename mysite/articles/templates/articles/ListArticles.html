@@ -1,0 +1,65 @@
+{% extends 'articles/base.html' %}
+
+  
+{% block content %}
+
+<div class="tm-header">
+                    <!-- navbar -->
+<br> <br>  <br> <br>
+
+                        <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#tmNavbar">
+                            &#9776;
+                        </button>
+                        
+                        <div class="collapse navbar-toggleable-sm" >
+                            <ul class="nav navbar-nav">
+                                <li class="nav-item active">
+                                    <a href="{%url 'articles:articles_list' %}" class="nav-link">Home-Blog</a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a href="{% url 'articles:about'%}" class="nav-link">About</a>
+                                </li>
+                            </ul>                        
+                        </div>
+                        
+                    </nav>  
+
+</div>
+
+
+
+             <section class="tm-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-xs-center">
+                            <img src="../../../static/img/00-movie.jpg"                               
+                            width="400"
+                            height="340">
+                        <h2 class="tm-gold-text tm-title">Introduction</h2>
+                        <p class="tm-subtitle">In this website you can disccus and critisize the movies</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+
+                    </div>
+                </div> <!-- row -->
+         <div class="container-fluid">
+    <div class="row content">
+        <li class="active"> To create your post: <a href="{% url 'articles:create_articles' %}">Click here</a></li>
+      </ul><br>
+    </div 
+
+
+   {% for article in articles %}
+      <h2>{{ article.title }}</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by {{ article.author }}, Created at {{ article.created_at }}
+      {% if article.is_updated %}
+          Updated at {{ article.updated_at }}
+      {% endif %}</h5>
+      <p>{{ article.description|truncatechars:80}}</p>
+      <a href="{% url 'articles:article_detail' article.pk %}">Read more</a>
+      <br><br>
+    {% endfor %}
+{% endblock %}

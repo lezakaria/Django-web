@@ -1,0 +1,38 @@
+{% extends 'articles/base.html' %}
+
+
+
+
+{% block content %}
+
+
+             <section class="tm-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-xs-center">
+                            <img src="../../../static/img/00-movie.jpg"                               
+                            width="400"
+                            height="340">
+                        <h2 class="tm-gold-text tm-title">Introduction</h2>
+                        <p class="tm-subtitle">In this website you can disccus and critisize the movies</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+
+                    </div>
+                </div> <!-- row -->
+
+
+
+   {% for article in articles %}
+      <h2>{{ article.title }}</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by {{ article.author }}, Created at {{ article.created_at }}
+      {% if article.is_updated %}
+          Updated at {{ article.updated_at }}
+      {% endif %}</h5>
+      <p>{{ article.description|truncatechars:80}}</p>
+      <a href="{% url 'articles:article_detail' article.pk %}">Read more</a>
+      <br><br>
+    {% endfor %}
+{% endblock %}

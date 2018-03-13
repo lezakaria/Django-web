@@ -1,0 +1,35 @@
+{% extends 'articles/base.html' %}
+
+
+{% block content %}
+<div class="tm-header">
+                    <!-- navbar -->
+<br> <br>  <br> <br>
+
+
+                        <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#tmNavbar">
+                            &#9776;
+                        </button>
+                        
+                        <div class="collapse navbar-toggleable-sm" >
+                            <ul class="nav navbar-nav">
+                                <li class="nav-item ">
+                                    <a href="{%url 'articles:articles_list' %}" class="nav-link">Home-Blog</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a  class="nav-link">Blog-edit</a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a href="{% url 'articles:about'%}"  class="nav-link">About</a>
+                                </li>
+                            </ul>                        
+                        </div>
+                        
+                    </nav>  
+
+</div>
+<br> <br>  <br> <br><br> <br>  <br> <br>
+    <h2> Your post is deleted </h2>
+{% endblock %}
+

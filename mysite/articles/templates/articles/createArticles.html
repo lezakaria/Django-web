@@ -1,0 +1,16 @@
+{% extends 'articles/base.html' %}
+
+
+{% block content %}
+       <br> <br>  <br> <br>
+    <h2> Create your article! </h2>  
+    <br></br>
+    <div class="container">
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+</div>
+{% endblock %}
+
+
